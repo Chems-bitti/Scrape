@@ -11,11 +11,11 @@ import (
 func main() {
 	bot, err := tgbotapi.NewBotAPI("insert bot token")
 	if err != nil {
-		panic(err)
+		panic(err) // Don't judge me using panic please
 	}
 	var chatID int64 = insertChatId
 	bot.Debug = true
-	scanner := bufio.NewScanner(os.Stdin)
+	scanner := bufio.NewScanner(os.Stdin) // Reading from stdin, you should pipe what you want to send to linkedIn bot, try echo Hi | linkedInbot
 	for scanner.Scan() {
 		jobs := fmt.Sprintf("Nouvelles offre dispo :\n %s", scanner.Text())
 		msg := tgbotapi.NewMessage(chatID, jobs)
